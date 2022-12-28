@@ -1,17 +1,20 @@
 import React from "react";
-import { Button, Form, Input, message } from 'antd';
+import { Button, Form, Input } from 'antd';
 import { useNavigate } from "react-router-dom";
+import request from '../../request/request'
 import './index.css';
 
 function Login() {
   const goNavigates = useNavigate();
 
   const onFinish = (values: any) => {
-    if (values?.username === 'admin' && values?.password === 'admin') {
-      goNavigates('/home');
-    } else {
-      message.error('用户名或密码错误');
-    }
+    request('http://127.0.0.1:3007/login', 'post', {
+      username: values?.username,
+      password: values?.password
+    })
+      .then((res) => {
+        goNavigates('/home');
+      })
   };
 
   return (
@@ -49,8 +52,8 @@ function Login() {
             </Form.Item>
             <Form.Item wrapperCol={{ offset: 5, span: 16 }}>
               <div className="numberLink">
-                <a href="javascript:;">忘记密码</a>
-                <a href="javascript:;">注册账号</a>
+                <a href="#">忘记密码</a>
+                <a href="#">注册账号</a>
               </div>
             </Form.Item>
           </Form>
