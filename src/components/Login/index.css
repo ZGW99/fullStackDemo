@@ -1,0 +1,24 @@
+.login {
+  background-color: #fff;
+  position: relative;
+  max-width: 450px;
+  flex: 1;
+  padding: 80px 35px 40px;
+  margin: 0 auto;
+  overflow: hidden
+}
+
+.buttons {
+  width: 100%;
+}
+
+.loginBox {
+  background-color: #f5f5f5;
+  width: 100%;
+  height: calc(100vh);
+}
+
+.numberLink {
+  display: flex;
+  justify-content: space-between;
+}
