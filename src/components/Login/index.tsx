@@ -7,12 +7,14 @@ import './index.css';
 function Login() {
   const goNavigates = useNavigate();
 
-  const onFinish = (values: any) => {
+  const onFinish = (values: Record<string, any>) => {
     request('http://127.0.0.1:3007/login', 'post', {
       username: values?.username,
       password: values?.password
     })
-      .then((res) => {
+      .then((res: any) => {
+        const userToken = JSON.stringify(res?.data?.username) || '';
+        localStorage.setItem('userName', '123');
         goNavigates('/home');
       })
   };

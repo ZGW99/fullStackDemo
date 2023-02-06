@@ -37,7 +37,7 @@ function Navigates() {
 
   const onOpenChange: MenuProps['onOpenChange'] = (keys: any) => {
     const latestOpenKey = keys.find((key: any) => openKeys.indexOf(key) === -1);
-    
+
     if (rootSubmenuKeys.indexOf(latestOpenKey!) === -1) {
       setOpenKeys(keys);
     } else {
@@ -47,14 +47,14 @@ function Navigates() {
 
   return (
     <div>
-    <Menu
-      mode="inline"
-      theme="dark"
-      openKeys={openKeys}
-      onOpenChange={onOpenChange}
-      style={{ width: 256 }}
-      items={items}
-    />
+      <Menu
+        mode="inline"
+        theme="dark"
+        openKeys={openKeys}
+        onOpenChange={onOpenChange}
+        style={{ width: 198 }}
+        items={items}
+      />
     </div>
   );
 }
