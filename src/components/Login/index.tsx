@@ -8,7 +8,8 @@ function Login() {
   const goNavigates = useNavigate();
 
   const onFinish = (values: Record<string, any>) => {
-    request('http://127.0.0.1:3007/login', 'post', {
+
+    request('https://console-mock.apipost.cn/mock/f0c7cc73-5dec-4da5-8efb-d6a4f55b1050/demo/login', 'post', {
       username: values?.username,
       password: values?.password
     })

@@ -31,6 +31,7 @@ const items: MenuItem[] = [
 ];
 
 const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
+const clientHieght = window.screen.height;
 
 function Navigates() {
   const [openKeys, setOpenKeys] = useState(['sub1']);
@@ -49,10 +50,10 @@ function Navigates() {
     <div>
       <Menu
         mode="inline"
-        theme="dark"
+        theme="light"
         openKeys={openKeys}
         onOpenChange={onOpenChange}
-        style={{ width: 198 }}
+        style={{ width: 198, height: clientHieght }}
         items={items}
       />
     </div>
