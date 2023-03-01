@@ -9,15 +9,15 @@ function Login() {
 
   const onFinish = (values: Record<string, any>) => {
 
-    request('https://console-mock.apipost.cn/mock/f0c7cc73-5dec-4da5-8efb-d6a4f55b1050/demo/login', 'post', {
-      username: values?.username,
-      password: values?.password
-    })
-      .then((res: any) => {
-        const userToken = JSON.stringify(res?.data?.username) || '';
+    // request('https://console-mock.apipost.cn/mock/f0c7cc73-5dec-4da5-8efb-d6a4f55b1050/demo/login', 'post', {
+    //   username: values?.username,
+    //   password: values?.password
+    // })
+    //   .then((res: any) => {
+    //     const userToken = JSON.stringify(res?.data?.username) || '';
         localStorage.setItem('userName', '123');
         goNavigates('/home');
-      })
+      // })
   };
 
   return (

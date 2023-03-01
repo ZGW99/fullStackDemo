@@ -6,7 +6,7 @@ import { Breadcrumb, Row, Col } from "antd";
 function Main() {
   return (
     <Row>
-      <Col>
+      <Col span={3}>
         <div
           style={{
             position: 'sticky',
@@ -18,7 +18,7 @@ function Main() {
           <Navigates />
         </div>
       </Col>
-      <Col>
+      <Col span={21}>
         <div className="site-layout" style={{ padding: '0 50px', }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>Home</Breadcrumb.Item>
