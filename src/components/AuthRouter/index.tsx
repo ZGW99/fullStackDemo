@@ -5,7 +5,7 @@ import routers from "../../router/router";
 function AuthRouter() {
   const GetRoutes = () => useRoutes(routers);
   const goNavigates = useNavigate();
-  const userLoginLisense = localStorage.getItem('userName');
+  const userLoginLisense = localStorage.getItem('token');
   
   useEffect(() => {
     if (!userLoginLisense) {

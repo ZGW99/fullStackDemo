@@ -8,7 +8,7 @@ axios.defaults.baseURL = '//localhost:3007'
 // axios.defaults.baseURL = '//localhost:3006' 
  
 //声明一个function request 用于封装axios，他接受一个url，type和data
-export default function request(url: string, type: string = 'GET', data: any = {}, token?: string) {
+export default function request(url: string, type: string = 'GET', data: any = {}) {
   return new Promise((resolve, reject) => {
     let option:any  = {
       url,
@@ -27,15 +27,11 @@ export default function request(url: string, type: string = 'GET', data: any = {
       axios.defaults.headers.common['Authorization']  = localStorage.token
     }
 
-    if(token){
-      axios.defaults.headers.common['Authorization']  = 'Bearer ' + token;
-      axios.defaults.headers.post['Content-Type'] = 'application/json';
-    }
     axios(option).then(res => {
       //如果res.data.status的状态为200且本地的token和res.data.token一样那么就resolve
-      if(res.data.success === true || res.data.id) {
-        if(res.data.token) {
-          localStorage.token = res.data.token
+      if(res.data.data.id) {
+        if(res.data.data.token) {
+          localStorage.token = res.data.data.token
         }
         resolve(res.data)
         //否则的话就message错误然后reject

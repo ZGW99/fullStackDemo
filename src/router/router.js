@@ -1,8 +1,8 @@
 import Login from "../components/Login";
 import Page1 from "../components/Page1";
 import Page2 from "../components/Page2";
+import Page3 from "../components/Page3";
 import Main from "../tabs/main";
-import React from 'react';
 
 const routers = [
   {
@@ -24,6 +24,10 @@ const routers = [
       {
         path: '/home/second',
         element: <Page2></Page2>
+      },
+      {
+        path: '/home/third',
+        element: <Page3></Page3>
       }
     ]
   },

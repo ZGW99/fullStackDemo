@@ -1,24 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Form, Input } from 'antd';
 import { useNavigate } from "react-router-dom";
-import request from '../../request/request'
+import request from '../../request/loginRequest'
 import './index.css';
 
 function Login() {
   const goNavigates = useNavigate();
-
   const onFinish = (values: Record<string, any>) => {
-
-    // request('https://console-mock.apipost.cn/mock/f0c7cc73-5dec-4da5-8efb-d6a4f55b1050/demo/login', 'post', {
-    //   username: values?.username,
-    //   password: values?.password
-    // })
-    //   .then((res: any) => {
-    //     const userToken = JSON.stringify(res?.data?.username) || '';
-        localStorage.setItem('userName', '123');
-        goNavigates('/home');
-      // })
+    request('http://8.130.75.219:8889/api/private/v1/login', 'post', {
+      username: values?.username,
+      password: values?.password
+    })
+      .then(() => {
+        goNavigates('/home/third');
+      })
   };
+
+  useEffect(()=>{
+    if(localStorage.getItem('token')){
+      goNavigates('/home/third');
+    }
+  })
 
   return (
     <div className="loginBox">
@@ -48,12 +50,12 @@ function Login() {
               <Input.Password placeholder="密码" />
             </Form.Item>
 
-            <Form.Item wrapperCol={{ offset: 5, span: 16 }}>
+            <Form.Item wrapperCol={{ offset: window.innerWidth > 1172 ? 5 : 0, span: 16 }}>
               <Button style={{ width: '100%' }} type="primary" htmlType="submit">
                 提交
               </Button>
             </Form.Item>
-            <Form.Item wrapperCol={{ offset: 5, span: 16 }}>
+            <Form.Item wrapperCol={{ offset: window.innerWidth > 1172 ? 5 : 0, span: 16 }}>
               <div className="numberLink">
                 <a href="#">忘记密码</a>
                 <a href="#">注册账号</a>

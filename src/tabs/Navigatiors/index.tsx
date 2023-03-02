@@ -27,6 +27,7 @@ const items: MenuItem[] = [
   getItem('Navigation One', 'sub1', <MailOutlined />, [
     getItem(<NavLink to="/home/first">Option 1</NavLink>, '/home'),
     getItem(<NavLink to="/home/second">Option 2</NavLink>, '/home/first'),
+    getItem(<NavLink to="/home/third">Option 3</NavLink>, '/home/third'),
   ]),
 ];
 

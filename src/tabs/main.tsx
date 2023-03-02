@@ -6,7 +6,7 @@ import { Breadcrumb, Row, Col } from "antd";
 function Main() {
   return (
     <Row>
-      <Col span={3}>
+      {/* <Col span={3}>
         <div
           style={{
             position: 'sticky',
@@ -17,17 +17,17 @@ function Main() {
         >
           <Navigates />
         </div>
-      </Col>
-      <Col span={21}>
+      </Col> */}
+      {/* <Col span={21}>
         <div className="site-layout" style={{ padding: '0 50px', }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>Home</Breadcrumb.Item>
             <Breadcrumb.Item>List</Breadcrumb.Item>
             <Breadcrumb.Item>App</Breadcrumb.Item>
-          </Breadcrumb>
-          <div id='context'><Outlet /></div>
-        </div>
-      </Col>
+          </Breadcrumb> */}
+          <div id='context' style={{ width: '100%' }}><Outlet /></div>
+        {/* </div>
+      </Col> */}
     </Row>
   )
 }
